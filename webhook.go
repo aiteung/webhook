@@ -68,7 +68,7 @@ func Github(c *fiber.Ctx, publickey string, iddebug string, APINotif string) err
 	case github.PushPayload:
 		komsg := ""
 		for i, komit := range pyl.Commits {
-			appd := strconv.Itoa(i+1) + ". " + komit.Message + "_" + komit.Author.Name + "_\n"
+			appd := strconv.Itoa(i+1) + ". " + komit.Message + "\n_" + komit.Author.Name + "_\n"
 			komsg += appd
 		}
 		msg = pyl.Pusher.Name + "\n" + pyl.Sender.Login + "\n" + pyl.Repository.Name + "\n" + pyl.Ref + "\n" + pyl.Repository.URL + "\n" + komsg
